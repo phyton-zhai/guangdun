@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>成本 · 代价与收益 - 光盾</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+      background-color: #fafaf8;
+      color: #1a1a1a;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(250, 250, 248, 0.92);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      border-bottom: 1px solid #e8e8e6;
+      padding: 0.8rem 0;
+    }
+    .nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #1a1a1a;
+    }
+    .logo span {
+      color: #c41e3a;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #555555;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #1a1a1a;
+    }
+    .active-nav {
+      color: #c41e3a !important;
+      border-bottom: 2px solid #c41e3a;
+    }
+
+    .page-header {
+      padding: 7rem 0 3rem;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 0.8rem;
+    }
+
+    section {
+      padding: 3rem 0;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1a1a1a;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #333333;
+      margin-bottom: 1.2rem;
+    }
+
+    .cost-table {
+      width: 100%;
+      max-width: 650px;
+      margin: 1.5rem auto;
+      border-collapse: collapse;
+      background: #ffffff;
+      border: 1px solid #e8e8e6;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .cost-table th {
+      background: #f5f4f1;
+      color: #1a1a1a;
+      padding: 0.8rem 1.2rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #e8e8e6;
+    }
+    .cost-table td {
+      padding: 0.8rem 1.2rem;
+      color: #555555;
+      border-bottom: 1px solid #e8e8e6;
+      font-size: 0.9rem;
+    }
+    .cost-table tr:last-child td {
+      border-bottom: none;
+      font-weight: 700;
+      color: #c41e3a;
+    }
+    .cost-table .total-row {
+      background: #fdf2f4;
+    }
+
+    .compare-numbers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.5rem;
+      margin: 2.5rem 0;
+      text-align: center;
+    }
+    .compare-item .number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #c41e3a;
+    }
+    .compare-item .label {
+      font-size: 0.85rem;
+      color: #888888;
+      margin-top: 0.3rem;
+    }
+
+    .highlight-box {
+      background: #fdf2f4;
+      border-left: 3px solid #c41e3a;
+      padding: 1.5rem 1.8rem;
+      border-radius: 0 8px 8px 0;
+      margin: 2rem 0;
+    }
+    .highlight-box p {
+      font-size: 0.95rem;
+      color: #333333;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-bottom {
+      text-align: center;
+      padding: 1rem 0 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      background: #c41e3a;
+      color: white;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: #a01830;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 0;
+      border-top: 1px solid #e8e8e6;
+      color: #888888;
+      font-size: 0.85rem;
+    }
+    footer a {
+      color: #555555;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+      .compare-numbers {
+        gap: 1.5rem;
+      }
+      .compare-item .number {
+        font-size: 1.6rem;
+      }
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <div class="logo">光<span>盾</span></div>
+      <ul class="nav-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="necessity.html">必要</a></li>
+        <li><a href="case.html">案例</a></li>
+        <li><a href="cost.html" class="active-nav">成本</a></li>
+        <li><a href="whitepaper.html">白皮书</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>代价与收益</h1>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="section-title">单节点改造成本</div>
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>改造项目</th>
+            <th>说明</th>
+            <th style="text-align:right;">预估成本（万元）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>储能柜 ×2</td>
+            <td>民用超级快放储能柜，含运输安装</td>
+            <td style="text-align:right;">60 – 80</td>
+          </tr>
+          <tr>
+            <td>探测组件</td>
+            <td>光电转塔、小型相控阵雷达、伺服转台</td>
+            <td style="text-align:right;">40 – 80</td>
+          </tr>
+          <tr>
+            <td>光盾接口箱</td>
+            <td>高压直流接口、冷媒接口、光纤通信、AI算力模块</td>
+            <td style="text-align:right;">10 – 20</td>
+          </tr>
+          <tr>
+            <td>热管理改造</td>
+            <td>消防水箱内换热盘管、冷媒管路、循环泵</td>
+            <td style="text-align:right;">5 – 10</td>
+          </tr>
+          <tr>
+            <td>施工与集成</td>
+            <td>电缆/光缆敷设、设备安装、系统联调</td>
+            <td style="text-align:right;">15 – 30</td>
+          </tr>
+          <tr class="total-row">
+            <td><strong>单栋楼合计</strong></td>
+            <td>建筑基础设施改造（不含激光武器发射器）</td>
+            <td style="text-align:right;"><strong>约 130 – 220</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="text-align:center; font-size:0.85rem; color:#888888;">* 激光武器发射器由军方根据需求选配，不计入本方案。</p>
+    </div>
+  </section>
+
+  <section style="background:#f5f4f1;">
+    <div class="container">
+      <div class="section-title">成本对比</div>
+      <div class="compare-numbers">
+        <div class="compare-item">
+          <div class="number">约 10 亿美元</div>
+          <div class="label">一套典型战区级防空系统</div>
+        </div>
+        <div class="compare-item">
+          <div class="number">约 2.68 亿元</div>
+          <div class="label">一个小区人防地库（以案例项目为例）<br>保护约 5000 人</div>
+        </div>
+        <div class="compare-item">
+          <div class="number">约 220 万元</div>
+          <div class="label">一个光盾节点<br>保护半径数公里空域</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">成本转嫁与全生命周期</div>
+      <p>
+        光盾接口的建设成本纳入小区配套建设费，由开发商承担，计入建筑总造价。对于一栋造价数亿元的高层住宅楼，新增成本占建筑总造价的比例极低。购房者分摊部分可忽略不计。
+      </p>
+      <p>
+        储能柜在和平时期自动参与电网峰谷调节，通过电价差套利，年收益约10万元/节点。日常巡检纳入物业既有维保合同，电工例行巡视即可完成。运维费用被储能收益覆盖后仍有盈余。
+      </p>
+      <p>
+        国家不新增专项国防支出。不增设政府部门编制，不增加规范体系，不增加学习成本。只是在既有的《人民防空工程技术要求》中增加一个章节——分布式防空节点接口标准。平战转换预案与小区人防地库平战转换预案合并编制，同一批物业人员、同一套验收流程、同一个时间节点。
+      </p>
+
+      <div class="highlight-box">
+        <p><strong>减少武器研发支出：</strong></p>
+        <p>储能、AI算力、散热等核心模块直接选用已大规模商业化验证的民用产品，不做重复研发。光盾接口采用标准化设计，适配我国现役及在研激光武器系统。已列装的激光武器通过标准接口接入光盾节点，即可获得持续供电、高效散热和加密通信支持，无需为建筑部署场景单独研发专用武器型号。</p>
+      </div>
+
+      <p style="text-align:center; color:#555555; margin-top:2rem;">
+        设备利用率100%。约15–20年通过储能收益收回全部改造成本。
+      </p>
+    </div>
+  </section>
+
+  <div class="nav-bottom">
+    <a href="whitepaper.html" class="btn">阅读完整技术白皮书</a>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p style="font-weight:600; color:#1a1a1a; margin-bottom:0.3rem;">光盾 · 分布式国土防空节点</p>
+      <p>防御性基础设施构想 | 国家专利申请中</p>
+      <p style="margin-top:0.5rem;">
+        <strong>联系人：</strong>Philosopher-Zhai &nbsp;&nbsp;
+        <strong>邮箱：</strong><a href="mailto:phyton_zhai@outlook.com">phyton_zhai@outlook.com</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
