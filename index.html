@@ -77,7 +77,7 @@
       font-size: 2.8rem;
       font-weight: 800;
       color: #1a1a1a;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       letter-spacing: 1px;
     }
     .hero h1 span {
@@ -86,7 +86,7 @@
     .hero .subtitle {
       font-size: 1.15rem;
       color: #555555;
-      max-width: 600px;
+      max-width: 620px;
       margin: 0 auto 2rem;
     }
 
@@ -139,6 +139,22 @@
       white-space: nowrap;
       font-weight: 600;
       color: #1a1a1a;
+    }
+
+    .highlight-box {
+      background: #fdf2f4;
+      border-left: 3px solid #c41e3a;
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 8px 8px 0;
+      margin: 2rem 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .highlight-box p {
+      font-size: 0.95rem;
+      color: #333333;
+      margin-bottom: 0.3rem;
     }
 
     .btn {
@@ -221,7 +237,7 @@
   <div class="hero">
     <div class="container">
       <h1>光盾<br><span>分布式国土防空节点</span></h1>
-      <p class="subtitle">复用民用高层建筑既有基础设施，为激光防御系统提供标准化的部署接口。</p>
+      <p class="subtitle">复用民用高层建筑既有基础设施，为激光防御系统提供标准化的部署接口。从无人机蜂群到再入弹头，以可调功率密度和多节点非相干能量叠加覆盖宽广威胁频谱。</p>
     </div>
   </div>
 
@@ -231,15 +247,15 @@
       <div class="grid-3">
         <div class="card">
           <h3>高压直流输入</h3>
-          <p>复用建筑双路市电与民用储能柜。储能柜平时参与电网调峰，战时毫秒级切换离网供电，适配1MW级激光武器。单柜放电800kW，无需专用电源研发。</p>
+          <p>复用建筑双路市电与民用储能柜。储能柜平时参与电网调峰，战时毫秒级切换离网供电，适配1MW级激光武器。单柜放电800kW，双柜并联可满足更大功率需求。多节点协同工作时总功率线性叠加。</p>
         </div>
         <div class="card">
           <h3>循环冷媒</h3>
-          <p>独立闭合冷媒回路，在消防水箱内安装非接触式换热盘管。18m³水体提供752MJ热缓冲，废热封闭消纳，外表无热源特征，红外成像与普通水箱无异。</p>
+          <p>独立闭合冷媒回路，在消防水箱内安装非接触式换热盘管。18m³水体提供752MJ热缓冲，废热封闭消纳。散热链条无原理性瓶颈：液冷技术解决热流密度，冷媒回路解决热量传输，消防水箱解决最终热沉。</p>
         </div>
         <div class="card">
           <h3>网络数据</h3>
-          <p>从楼内既有光纤物理取用2芯，构建与互联网隔离的加密专网。光纤通信对外无电磁辐射，多节点协同与AI模型更新均经此链路。</p>
+          <p>从楼内既有光纤物理取用2芯，构建与互联网隔离的加密专网。配商用100G光模块，可用带宽约100Gbps，节点实际通信需求不到500Mbps，冗余超过200倍。光纤通信对外无电磁辐射。</p>
         </div>
       </div>
 
@@ -253,10 +269,18 @@
         <span>2芯光纤通信</span>
         <span>·</span>
         <span>国产AI芯片自主识别</span>
+        <span>·</span>
+        <span>两级跟瞄架构</span>
+        <span>·</span>
+        <span>硬件安全互锁</span>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>物理潜力：</strong>多节点非相干能量叠加，十节点协同照射弹头表面总功率达10MW级，可在数秒内烧穿再入弹头防热层。从80公里高度锁定到拦截完成约4-7秒，时间窗口充裕。一座城市数百至数千栋高层建筑，理论上可同时应对的再入弹头数量远超任何单枚导弹的分导数量。光盾是独立分布式城市防御体系，物理能力覆盖从低慢小目标到再入弹头的宽广威胁频谱。</p>
       </div>
 
       <p style="text-align:center; color:#555555; font-size:0.95rem; max-width:650px; margin:1.5rem auto;">
-        每个近十五年建成的新建小区，均有一栋楼配置屋顶消防水箱间。该楼即可作为光盾节点，覆盖半径数公里空域。不新增用地，不改变建筑功能，不依赖专用军事设施。
+        每个近十五年建成的新建小区，均有一栋楼配置屋顶消防水箱间。该楼即可作为光盾节点，覆盖半径数公里空域。不新增用地，不改变建筑功能，不依赖专用军事设施。所有核心组件均为已大规模商业化验证的民用产品，不做重复研发。
       </p>
     </div>
   </section>
